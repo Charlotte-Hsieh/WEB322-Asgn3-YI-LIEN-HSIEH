@@ -1,8 +1,10 @@
-// WEB322 – Assignment 3
-// Student Name: YI-LIEN HSIEH
-// Student ID  : 105889240
-// Date        : 11-23-2025
-// Section     : WEB322 NAA
+/********************************************************************************
+* WEB322 – Assignment 03
+* Name: YI-LIEN HSIEH
+* Student ID: 105889240
+* Date: 11-23-2025
+* Published URL: https://web-322-asgn3-yi-lien-hsieh.vercel.app
+********************************************************************************/
 
 require('dotenv').config();
 const express = require('express');

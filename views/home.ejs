@@ -5,16 +5,22 @@ Student ID  : 105889240
 Date        : 11-23-2025
 Section     : WEB322 NAA
 -->
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Home</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <%- include('partials/navbar') %>
-  <h1>Welcome to Climate Solutions</h1>
-  <p>Discover projects that help combat climate change.</p>
-  <a href="/solutions/projects">Get Started Now</a>
+
+  <div class="home-hero-xmas">
+    <h1>Welcome to Climate Solutions</h1>
+    <p>Discover projects that help combat climate change.</p>
+
+    <a href="/solutions/projects" class="btn-xmas">Get Started Now</a>
+  </div>
+
 </body>
 </html>

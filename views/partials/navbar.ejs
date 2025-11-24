@@ -5,9 +5,8 @@ Student ID  : 105889240
 Date        : 11-23-2025
 Section     : WEB322 NAA
 -->
-
-<nav>
-  <ul>
+<nav class="navbar-xmas">
+  <ul class="navbar-list-xmas">
     <li><a href="/">Home</a></li>
     <li><a href="/solutions/projects?sector=Land%20Sinks">Land Sinks</a></li>
     <li><a href="/solutions/projects?sector=Industry">Industry</a></li>
@@ -15,10 +14,11 @@ Section     : WEB322 NAA
     <li><a href="/solutions/projects?sector=Electricity">Electricity</a></li>
     <li><a href="/solutions/projects?sector=Food">Food, Agriculture, and Land Use</a></li>
     <li><a href="/solutions/projects">View All</a></li>
+
     <% if (!session.user) { %>
-      <li><a href="/login">Log In</a></li>
+      <li style="float:right;"><a href="/login">Log In</a></li>
     <% } else { %>
-      <li><a href="/logout">Log Out (<%= session.user.userName %>)</a></li>
+      <li style="float:right;"><a href="/logout">Log Out (<%= session.user.userName %>)</a></li>
     <% } %>
   </ul>
 </nav>
