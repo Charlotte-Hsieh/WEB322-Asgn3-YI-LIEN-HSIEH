@@ -1,0 +1,62 @@
+<!--
+Assignment 3
+Student Name: YI-LIEN HSIEH
+Student ID  : 105889240
+Date        : 11-23-2025
+Section     : WEB322 NAA
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Project</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <h1>Edit Project: <%= project.title %></h1>
+  
+  <form method="POST" action="/solutions/editProject" style="max-width: 600px;">
+    <input type="hidden" name="id" value="<%= project.id %>">
+    
+    <label>Title:<br>
+      <input type="text" name="title" value="<%= project.title %>" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
+    </label><br>
+    
+    <label>Image URL:<br>
+      <input type="url" name="feature_img_url" value="<%= project.feature_img_url %>" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
+    </label><br>
+    
+    <label>Sector:<br>
+      <select name="sector_id" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
+        <option value="1" <%= (project.sector_id == 1) ? "selected" : "" %>>Land Sinks</option>
+        <option value="2" <%= (project.sector_id == 2) ? "selected" : "" %>>Industry</option>
+        <option value="3" <%= (project.sector_id == 3) ? "selected" : "" %>>Transportation</option>
+        <option value="4" <%= (project.sector_id == 4) ? "selected" : "" %>>Electricity</option>
+        <option value="5" <%= (project.sector_id == 5) ? "selected" : "" %>>Food, Agriculture, and Land Use</option>
+      </select>
+    </label><br>
+    
+    <label>Intro:<br>
+      <textarea name="intro_short" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"><%= project.intro_short %></textarea>
+    </label><br>
+    
+    <label>Summary:<br>
+      <textarea name="summary_short" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"><%= project.summary_short %></textarea>
+    </label><br>
+    
+    <label>Impact:<br>
+      <textarea name="impact" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"><%= project.impact %></textarea>
+    </label><br>
+    
+    <label>Source URL:<br>
+      <input type="url" name="original_source_url" value="<%= project.original_source_url %>" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
+    </label><br>
+    
+    <button type="submit" style="padding: 10px 30px; background: blue; color: white; border: none; cursor: pointer; margin-right: 10px;">Update Project</button>
+  </form>
+  
+  <br>
+  <a href="/solutions/deleteProject/<%= project.id %>" 
+     onclick="return confirm('Are you sure you want to delete this project?')" 
+     style="display: inline-block; padding: 10px 30px; background: red; color: white; text-decoration: none;">Delete Project</a>
+</body>
+</html>

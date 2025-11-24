@@ -1,0 +1,38 @@
+<!--
+Assignment 3
+Student Name: YI-LIEN HSIEH
+Student ID  : 105889240
+Date        : 11-23-2025
+Section     : WEB322 NAA
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+  
+  <form method="POST" action="/login" style="max-width: 400px;">
+    <label>User Name:<br>
+      <input type="text" name="userName" placeholder="User Name" value="<%= userName %>" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+    </label><br>
+    
+    <label>Password:<br>
+      <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+    </label><br>
+    
+    <button type="submit" style="padding: 10px 30px; background: green; color: white; border: none; cursor: pointer;">Login</button>
+  </form>
+  
+  <% if (errorMessage) { %>
+    <div style="color: red; margin-top: 20px; padding: 15px; border: 1px solid red; background: #ffe6e6;">
+      <strong>Error:</strong> <%= errorMessage %>
+    </div>
+  <% } %>
+  
+  <p style="margin-top: 20px;">
+    <a href="/">Back to Home</a>
+  </p>
+</body>
+</html>
