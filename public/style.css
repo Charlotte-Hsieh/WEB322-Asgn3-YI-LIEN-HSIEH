@@ -114,3 +114,12 @@ body {
   border-radius: 6px;
   margin: 20px auto;
 }
+
+.footer-xmas {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px;
+  color: #7a3e48;
+  font-size: 14px;
+  opacity: 0.8;
+}
