@@ -9,12 +9,14 @@ Section     : WEB322 NAA
 <html>
 <head>
   <title>Add Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <%- include('partials/navbar') %>
   <h1>Add New Project</h1>
   
-  <form method="POST" action="/solutions/addProject" style="max-width: 600px;">
+  <form method="POST" action="/solutions/addProject" style="max-width: 600px; margin: 0 auto; padding: 20px;">
     <label>Title:<br>
       <input type="text" name="title" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
     </label><br>
@@ -49,7 +51,7 @@ Section     : WEB322 NAA
       <input type="url" name="original_source_url" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
     </label><br>
     
-    <button type="submit" style="padding: 10px 30px; background: green; color: white; border: none; cursor: pointer;">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </body>
 </html>

@@ -9,11 +9,13 @@ Section     : WEB322 NAA
 <html>
 <head>
   <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <h1>Login</h1>
+  <h1 style="text-align: center; margin-top: 50px;">Login</h1>
   
-  <form method="POST" action="/login" style="max-width: 400px;">
+  <form method="POST" action="/login" style="max-width: 400px; margin: 30px auto; padding: 20px;">
     <label>User Name:<br>
       <input type="text" name="userName" placeholder="User Name" value="<%= userName %>" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
     </label><br>
@@ -22,16 +24,19 @@ Section     : WEB322 NAA
       <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
     </label><br>
     
-    <button type="submit" style="padding: 10px 30px; background: green; color: white; border: none; cursor: pointer;">Login</button>
+    <button type="submit" class="btn btn-success">Login</button>
   </form>
   
   <% if (errorMessage) { %>
-    <div style="color: red; margin-top: 20px; padding: 15px; border: 1px solid red; background: #ffe6e6;">
-      <strong>Error:</strong> <%= errorMessage %>
+    <div role="alert" class="alert alert-error" style="max-width: 400px; margin: 20px auto;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span><%= errorMessage %></span>
     </div>
   <% } %>
   
-  <p style="margin-top: 20px;">
+  <p style="text-align: center; margin-top: 20px;">
     <a href="/">Back to Home</a>
   </p>
 </body>

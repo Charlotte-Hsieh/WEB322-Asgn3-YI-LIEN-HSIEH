@@ -9,12 +9,14 @@ Section     : WEB322 NAA
 <html>
 <head>
   <title>Edit Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <%- include('partials/navbar') %>
   <h1>Edit Project: <%= project.title %></h1>
   
-  <form method="POST" action="/solutions/editProject" style="max-width: 600px;">
+  <form method="POST" action="/solutions/editProject" style="max-width: 600px; margin: 0 auto; padding: 20px;">
     <input type="hidden" name="id" value="<%= project.id %>">
     
     <label>Title:<br>
@@ -51,12 +53,14 @@ Section     : WEB322 NAA
       <input type="url" name="original_source_url" value="<%= project.original_source_url %>" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
     </label><br>
     
-    <button type="submit" style="padding: 10px 30px; background: blue; color: white; border: none; cursor: pointer; margin-right: 10px;">Update Project</button>
+    <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Update Project</button>
   </form>
   
   <br>
-  <a href="/solutions/deleteProject/<%= project.id %>" 
-     onclick="return confirm('Are you sure you want to delete this project?')" 
-     style="display: inline-block; padding: 10px 30px; background: red; color: white; text-decoration: none;">Delete Project</a>
+  <div style="text-align: center;">
+    <a href="/solutions/deleteProject/<%= project.id %>" 
+       onclick="return confirm('Are you sure you want to delete this project?')" 
+       class="btn btn-error">Delete Project</a>
+  </div>
 </body>
 </html>
