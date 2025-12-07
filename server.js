@@ -1,8 +1,20 @@
 /********************************************************************************
 * WEB322 – Assignment 03
 * I declare that this assignment is my own work in accordance with Seneca's
-* Name: YI-LIEN HSIEH   Student ID: 105889240 Date: 12-05-2025
-* Published URL: https://web-322-asgn3-yi-lien-hsieh.vercel.app/
+* Academic Integrity Policy.
+*
+* Name: YI-LIEN HSIEH   Student ID: 105889240   Date: 12-05-2025
+********************************************************************************/
+
+/********************************************************************************
+* WEB322 – Assignment 03
+* I declare that this assignment is my own work in accordance with Seneca's
+* Academic Integrity Policy.
+*
+* Name: YI-LIEN HSIEH   Student ID: 105889240   Date: 12-05-2025
+*
+* Published URL: ___________________________________________________
+*
 ********************************************************************************/
 
 require('dotenv').config();

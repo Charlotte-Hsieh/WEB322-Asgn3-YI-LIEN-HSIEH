@@ -1,4 +1,4 @@
-// WEB322 – Assignment 2
+// WEB322 – Assignment 3
 // Student Name: YI-LIEN HSIEH
 // Student ID  : 105889240
 // Date        : 12-05-2025
@@ -46,8 +46,7 @@ const Project = sequelize.define('Project', {
   summary_short: Sequelize.TEXT,
   intro_short: Sequelize.TEXT,
   impact: Sequelize.TEXT,
-  original_source_url: Sequelize.STRING,
-  sector_id: Sequelize.INTEGER
+  original_source_url: Sequelize.STRING
 }, {
   timestamps: false
 });
@@ -124,12 +123,6 @@ function deleteProject(id) {
   });
 }
 
-function getAllSectors() {
-  return Sector.findAll({
-    order: [['id', 'ASC']]
-  });
-}
-
 module.exports = {
   initialize,
   getAllProjects,
@@ -137,6 +130,5 @@ module.exports = {
   getProjectsBySector,
   addProject,
   editProject,
-  deleteProject,
-  getAllSectors
+  deleteProject
 };
