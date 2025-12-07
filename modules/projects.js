@@ -1,10 +1,9 @@
-/********************************************************************************
-* WEB322 – Assignment 03
-* Name: YI-LIEN HSIEH
-* Student ID: 105889240
-* Date: 11-23-2025
-* Published URL: https://web-322-asgn3-yi-lien-hsieh.vercel.app
-********************************************************************************/
+// WEB322 – Assignment 2
+// Student Name: YI-LIEN HSIEH
+// Student ID  : 105889240
+// Date        : 12-05-2025
+// Section     : WEB322 NAA
+
 require('dotenv').config();
 require('pg');
 const Sequelize = require('sequelize');
@@ -16,9 +15,11 @@ let sequelize = new Sequelize(
   {
     host: process.env.PGHOST,
     dialect: 'postgres',
-    port: 5432,
     dialectOptions: {
-      ssl: { rejectUnauthorized: false }
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     }
   }
 );
@@ -31,8 +32,7 @@ const Sector = sequelize.define('Sector', {
   },
   sector_name: Sequelize.STRING
 }, {
-  createdAt: false,
-  updatedAt: false
+  timestamps: false
 });
 
 const Project = sequelize.define('Project', {
@@ -46,29 +46,35 @@ const Project = sequelize.define('Project', {
   summary_short: Sequelize.TEXT,
   intro_short: Sequelize.TEXT,
   impact: Sequelize.TEXT,
-  original_source_url: Sequelize.STRING
+  original_source_url: Sequelize.STRING,
+  sector_id: Sequelize.INTEGER
 }, {
-  createdAt: false,
-  updatedAt: false
+  timestamps: false
 });
 
-Project.belongsTo(Sector, {foreignKey: 'sector_id'});
+Project.belongsTo(Sector, { foreignKey: 'sector_id' });
 
 function initialize() {
   return sequelize.sync();
 }
 
 function getAllProjects() {
-  return Project.findAll({ include: [Sector] });
+  return Project.findAll({
+    include: [Sector],
+    order: [['id', 'ASC']]
+  });
 }
 
 function getProjectById(projectId) {
-  return Project.findAll({ 
-    include: [Sector], 
-    where: { id: projectId } 
+  return Project.findAll({
+    where: { id: projectId },
+    include: [Sector]
   }).then(data => {
-    if (data.length > 0) return data[0];
-    throw "Unable to find requested project";
+    if (data.length > 0) {
+      return data[0];
+    } else {
+      throw 'Unable to find requested project';
+    }
   });
 }
 
@@ -79,40 +85,58 @@ function getProjectsBySector(sector) {
       '$Sector.sector_name$': {
         [Sequelize.Op.iLike]: `%${sector}%`
       }
+    },
+    order: [['id', 'ASC']]
+  }).then(projects => {
+    if (projects.length > 0) {
+      return projects;
+    } else {
+      throw 'Unable to find requested projects';
     }
-  }).then(data => {
-    if (data.length > 0) return data;
-    throw "Unable to find requested projects";
   });
 }
 
 function addProject(projectData) {
-  return Project.create(projectData)
-    .catch(err => {
-      throw err.errors[0].message;
-    });
+  return new Promise((resolve, reject) => {
+    Project.create(projectData)
+      .then(() => resolve())
+      .catch(err => reject(err.errors[0].message));
+  });
 }
 
 function editProject(id, projectData) {
-  return Project.update(projectData, { where: { id: id } })
-    .catch(err => {
-      throw err.errors[0].message;
-    });
+  return new Promise((resolve, reject) => {
+    Project.update(projectData, {
+      where: { id: id }
+    })
+      .then(() => resolve())
+      .catch(err => reject(err.errors[0].message));
+  });
 }
 
 function deleteProject(id) {
-  return Project.destroy({ where: { id: id } })
-    .catch(err => {
-      throw err.errors[0].message;
-    });
+  return new Promise((resolve, reject) => {
+    Project.destroy({
+      where: { id: id }
+    })
+      .then(() => resolve())
+      .catch(err => reject(err.errors[0].message));
+  });
 }
 
-module.exports = { 
-  initialize, 
-  getAllProjects, 
-  getProjectById, 
+function getAllSectors() {
+  return Sector.findAll({
+    order: [['id', 'ASC']]
+  });
+}
+
+module.exports = {
+  initialize,
+  getAllProjects,
+  getProjectById,
   getProjectsBySector,
   addProject,
   editProject,
-  deleteProject
+  deleteProject,
+  getAllSectors
 };

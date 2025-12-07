@@ -1,57 +1,83 @@
-<!--
-Assignment 3
-Student Name: YI-LIEN HSIEH
-Student ID  : 105889240
-Date        : 11-23-2025
-Section     : WEB322 NAA
--->
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="retro">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
   <%- include('partials/navbar') %>
-  <h1>Add New Project</h1>
-  
-  <form method="POST" action="/solutions/addProject" style="max-width: 600px; margin: 0 auto; padding: 20px;">
-    <label>Title:<br>
-      <input type="text" name="title" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
-    </label><br>
-    
-    <label>Image URL:<br>
-      <input type="url" name="feature_img_url" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
-    </label><br>
-    
-    <label>Sector:<br>
-      <select name="sector_id" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
-        <option value="1">Land Sinks</option>
-        <option value="2">Industry</option>
-        <option value="3">Transportation</option>
-        <option value="4">Electricity</option>
-        <option value="5">Food, Agriculture, and Land Use</option>
-      </select>
-    </label><br>
-    
-    <label>Intro:<br>
-      <textarea name="intro_short" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"></textarea>
-    </label><br>
-    
-    <label>Summary:<br>
-      <textarea name="summary_short" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"></textarea>
-    </label><br>
-    
-    <label>Impact:<br>
-      <textarea name="impact" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 15px;"></textarea>
-    </label><br>
-    
-    <label>Source URL:<br>
-      <input type="url" name="original_source_url" required style="width: 100%; padding: 8px; margin-bottom: 15px;">
-    </label><br>
-    
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+
+  <div class="container mx-auto px-4 py-10">
+    <div class="hero bg-base-200 rounded-lg mb-8 py-10">
+      <div class="hero-content text-center">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl font-bold mb-4">Add Project</h1>
+          <p>Add a new climate solution project to the collection.</p> <!-- 這句可自由改寫 -->
+        </div>
+      </div>
+    </div>
+
+    <form action="/solutions/addProject" method="POST" class="space-y-6 max-w-3xl mx-auto">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Title</span>
+        </label>
+        <input type="text" name="title" required class="input input-bordered">
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Feature Image URL</span>
+        </label>
+        <input type="url" name="feature_img_url" required class="input input-bordered">
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Sector</span>
+        </label>
+        <select name="sector_id" required class="select select-bordered">
+          <option value="">Select a sector</option>
+          <option value="1">Land Sinks</option>
+          <option value="2">Industry</option>
+          <option value="3">Transportation</option>
+          <option value="4">Electricity</option>
+          <option value="5">Food, Agriculture, and Land Use</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Intro (short)</span>
+        </label>
+        <textarea name="intro_short" required class="textarea textarea-bordered"></textarea>
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Summary (short)</span>
+        </label>
+        <textarea name="summary_short" required class="textarea textarea-bordered"></textarea>
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Impact</span>
+        </label>
+        <textarea name="impact" required class="textarea textarea-bordered"></textarea>
+      </div>
+
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Original Source URL</span>
+        </label>
+        <input type="url" name="original_source_url" required class="input input-bordered">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+  </div>
 </body>
 </html>

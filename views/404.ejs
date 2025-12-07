@@ -1,22 +1,25 @@
-<!--
-Assignment 3
-Student Name: YI-LIEN HSIEH
-Student ID  : 105889240
-Date        : 11-23-2025
-Section     : WEB322 NAA
--->
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="retro">
 <head>
-  <title>404 Not Found</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Found</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
-  <h1 style="text-align: center; margin-top: 50px;">404 - Page Not Found</h1>
-  <p style="text-align: center;"><%= message %></p>
-  <p style="text-align: center; margin-top: 20px;">
-    <a href="/" class="btn btn-primary">Go Home</a>
-  </p>
+
+  <%- include("partials/navbar") %>
+
+  <section class="hero bg-base-200 min-h-[60vh]">
+    <div class="hero-content text-center">
+      <div class="max-w-lg">
+        <h1 class="text-5xl font-bold mb-6">404</h1>
+        <p class="text-lg mb-6"><%= message %></p>
+        <button onclick="history.back()" class="btn btn-primary">Go Back</button>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

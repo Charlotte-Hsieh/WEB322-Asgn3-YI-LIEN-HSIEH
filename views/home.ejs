@@ -1,29 +1,84 @@
-<!--
-Assignment 3
-Student Name: YI-LIEN HSIEH
-Student ID  : 105889240
-Date        : 11-23-2025
-Section     : WEB322 NAA
--->
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="retro">
 <head>
-  <title>Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
+
   <%- include('partials/navbar') %>
 
-<div class="home-hero-xmas">
-  <h1>🎄 Welcome & Merry Christmas 🎄</h1>
-  <p>This website shows different kinds of projects.</p>
-  <p>Please look around and enjoy.</p>
+  <div class="container mx-auto px-4 py-10">
 
-  <a href="/solutions/projects" class="btn btn-primary">View All Projects</a>
-</div>
+    <section class="hero bg-base-200 py-16 rounded-lg mb-12">
+      <div class="hero-content text-center">
+        <div class="max-w-xl">
+          <h1 class="text-5xl font-bold mb-4">Climate Solutions</h1>
+          <p class="mb-6 text-lg">
+            Explore innovative climate solutions that help build a sustainable and resilient future.
+          </p>
+          <a href="/solutions/projects" class="btn btn-primary">
+            View All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img class="w-full"
+            src="https://drawdown.org/sites/default/files/solutions/solution_farmlandrestoration01.jpg"
+            alt="Abandoned Farmland Restoration" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Abandoned Farmland Restoration</h2>
+          <p>Restoration can bring degraded farmland back into productivity and sequester carbon in the process.</p>
+          <div class="card-actions justify-end">
+            <a href="/solutions/projects/1" class="btn btn-secondary">Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img class="w-full"
+            src="https://drawdown.org/sites/default/files/solutions2020/solution_alternativecement02.jpg"
+            alt="Alternative Cement" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Alternative Cement</h2>
+          <p>Reformulating cement reduces global carbon emissions and supports sustainable construction.</p>
+          <div class="card-actions justify-end">
+            <a href="/solutions/projects/2" class="btn btn-secondary">Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img class="w-full"
+            src="https://drawdown.org/sites/default/files/solutions2020/solution_bicycle_infrastructure.jpg"
+            alt="Bicycle Infrastructure" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Bicycle Infrastructure</h2>
+          <p>Infrastructure supports safe and abundant bicycle use, lowering transportation emissions worldwide.</p>
+          <div class="card-actions justify-end">
+            <a href="/solutions/projects/3" class="btn btn-secondary">Details</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
 
 </body>
 </html>
