@@ -4,17 +4,8 @@
 * Academic Integrity Policy.
 *
 * Name: YI-LIEN HSIEH   Student ID: 105889240   Date: 12-05-2025
-********************************************************************************/
-
-/********************************************************************************
-* WEB322 – Assignment 03
-* I declare that this assignment is my own work in accordance with Seneca's
-* Academic Integrity Policy.
-*
-* Name: YI-LIEN HSIEH   Student ID: 105889240   Date: 12-05-2025
-*
-* Published URL: ___________________________________________________
-*
+* Published URL: https://web-322-asgn3-yi-lien-hsieh.vercel.app/
+* GitHub Repository: https://github.com/Charlotte-Hsieh/WEB322-Asgn3-YI-LIEN-HSIEH
 ********************************************************************************/
 
 require('dotenv').config();
